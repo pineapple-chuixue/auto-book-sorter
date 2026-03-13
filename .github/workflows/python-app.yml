@@ -1,0 +1,32 @@
+name: Python application CI
+
+# 触发条件：当主分支有 push 或者 pull_request 时运行
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest # 在 GitHub 的免费 Ubuntu 服务器上跑
+
+    steps:
+    - uses: actions/checkout@v3 # 拉取你的代码
+    
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install flake8
+        
+    - name: Lint with flake8
+      run: |
+        # 停止构建如果存在语法错误或未定义的变量
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        # exit-zero 把所有错误当做警告，这里设置单行最大字符数为 127
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics

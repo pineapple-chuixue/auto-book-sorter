@@ -1,0 +1,14 @@
+{
+  "directories": {
+    "unorganized_dir": "D:/书/待整理的旧书",
+    "inbox_dir": "D:/书/00_Inbox",
+    "library_dir": "D:/书/分类书架"
+  },
+  "files": {
+    "categories_file": "my_categories.json",
+    "batch_full_data": "books_full.json",
+    "ai_input": "inbox_for_ai.json",
+    "ai_output": "inbox_categorized.json",
+    "local_map": "inbox_local_map.json"
+  }
+}
