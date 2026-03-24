@@ -1,0 +1,187 @@
+请作为图书分类专家，根据我提供的 JSON 书单（包含 ID 和书名）进行精准分类。
+【规则】：
+1. 优先从已有列表中选择分类：
+- 个人成长/学习方法
+- 个人成长/思维提升
+- 个人成长/时间与习惯管理
+- 个人成长/综合
+- 个人成长/职场技能
+- 人文社科/历史
+- 人文社科/哲学与逻辑学
+- 人文社科/社会学与政治学
+- 人文社科/综合
+- 人文社科/艺术与美学
+- 家庭教育/亲子育儿
+- 心理学/专业心理学
+- 心理学/人际交往与沟通
+- 心理学/大众心理学
+- 教育/中小学教材
+- 数学/中小学数学
+- 数学/科普
+- 数学/高等数学
+- 文学/传记
+- 文学/古典文学
+- 文学/小说
+- 文学/散文与随笔
+- 文学/科幻小说
+- 文学/综合
+- 日语学习/综合
+- 日语学习/语法与词汇
+- 生活/健康与养生
+- 科学技术/物理学
+- 科学技术/生物与医学
+- 科学技术/科普
+- 经济管理/企业管理与运营
+- 经济管理/商业思维与创业
+- 经济管理/市场营销
+- 经济管理/投资与理财
+- 经济管理/经济学
+- 经济管理/综合
+- 英语学习/写作与翻译
+- 英语学习/口语
+- 英语学习/托福
+- 英语学习/综合教程
+- 英语学习/词汇
+- 英语学习/语法
+- 英语学习/雅思
+- 计算机科学/人工智能与深度学习
+- 计算机科学/基础理论
+- 计算机科学/数据科学与大数据
+- 计算机科学/算法与数据结构
+- 计算机科学/编程语言与软件工程
+- 计算机科学/网络安全
+2. 【允许创造】：如果属全新领域，可按现有规范(如"新领域/细分领域")自创新分类路径。
+3. 模糊不清的分类为 "00_需手动确认"。
+必须且只返回格式为 [{"id": 1, "category": "分类"}] 的 JSON 数组，不要输出 markdown 标记。
+
+【需分类的书单】：
+[
+  {
+    "id": 1,
+    "title": "101 American English Idioms Understanding and Speaking English Like an American (Harry Collis, Mario Russo) (rary.sk, 1lib.sk, .sk)"
+  },
+  {
+    "id": 2,
+    "title": "21世纪新物理学 (弗雷泽, 秦克诚)"
+  },
+  {
+    "id": 3,
+    "title": "Advanced English Conversation Dialogues Speak English Like a Native Speaker with Common Idioms and Phrases in American English (Jackie Bolen) (rary.sk, 1lib.sk, .sk)"
+  },
+  {
+    "id": 4,
+    "title": "Business Vocabulary in Use Advanced Book with Answers (Bill Mascull) (rary.sk, 1lib.sk, .sk)"
+  },
+  {
+    "id": 5,
+    "title": "Business Vocabulary in Use Intermediate, 3rd Edition (Bill Mascull) (rary.sk, 1lib.sk, .sk)"
+  },
+  {
+    "id": 6,
+    "title": "Consecutive Interpreting  A Short Course (Andrew Gillies) (rary.sk, 1lib.sk, .sk)"
+  },
+  {
+    "id": 7,
+    "title": "Dictionary of Word Origins (Joseph T. Shipley) (rary.sk, 1lib.sk, .sk)"
+  },
+  {
+    "id": 8,
+    "title": "Intermediate English Dialogues Speak American English Like a Native Speaker with these Phrases, Idioms,  Expressions (Jackie Bolen) (rary.sk, 1lib.sk, .sk)"
+  },
+  {
+    "id": 9,
+    "title": "Master English Collocations  Phrasal Verbs The Ultimate Phrasal Verbs and Collocations Book for Learning English (Marc Roche) (rary.sk, 1lib.sk, .sk)"
+  },
+  {
+    "id": 10,
+    "title": "Oxford Collocations Dictionary for Students of English (Oxford University Press, Diana Lea) (rary.sk, 1lib.sk, .sk)"
+  },
+  {
+    "id": 11,
+    "title": "Oxford Dictionary of Word Origins (Cresswell Julia) (rary.sk, 1lib.sk, .sk)"
+  },
+  {
+    "id": 12,
+    "title": "Shortcut To English Collocations Master 2000+ English Collocations In Used Explained Under 20 Minutes A Day (5 books in 1 Box… (MITCHELL RACHEL) (rary.sk, 1lib.sk, .sk)"
+  },
+  {
+    "id": 13,
+    "title": "Speak Business English Like an American (Gillett, Amy) (rary.sk, 1lib.sk, .sk)"
+  },
+  {
+    "id": 14,
+    "title": "Speak Business English Like an American Learn the Idioms  Expressions You Need to Succeed On The Job (Book  Audio CD) (Amy Gillett) (rary.sk, 1lib.sk, .sk)"
+  },
+  {
+    "id": 15,
+    "title": "Speak English Like an American (Amy Gillett) (rary.sk, 1lib.sk, .sk)"
+  },
+  {
+    "id": 16,
+    "title": "The Etymologicon (Mark Forsyth) (rary.sk, 1lib.sk, .sk)"
+  },
+  {
+    "id": 17,
+    "title": "The Maxwell Daily Reader 365 Days of Insight to Develop the Leader Within You and Influence Those Around You (John C. Maxwell) (rary.sk, 1lib.sk, .sk)"
+  },
+  {
+    "id": 18,
+    "title": "Word Origins ...and How We Know Them"
+  },
+  {
+    "id": 19,
+    "title": "上海外语口译证书培训与考试系列丛书·英语中级口译证书考试中级口译教程(第四版) (梅德明) (rary.sk, 1lib.sk, .sk)"
+  },
+  {
+    "id": 20,
+    "title": "利用Python进行数据分析(原书第2版) (韦斯·麦金尼(Wes McKinney)) (rary.sk, 1lib.sk, .sk)"
+  },
+  {
+    "id": 21,
+    "title": "口译笔记法入门宝典 (江晗，周静主编) (rary.sk, 1lib.sk, .sk)"
+  },
+  {
+    "id": 22,
+    "title": "强化学习的数学原理 (赵世钰) (rary.sk, 1lib.sk, .sk)"
+  },
+  {
+    "id": 23,
+    "title": "数值分析 第五版 (李庆扬 王能超 易大义) (rary.sk, 1lib.sk, .sk) (1)"
+  },
+  {
+    "id": 24,
+    "title": "李平武单词解密套装新版（共2本）（《英语词根与单词的说文解字》+《英语词缀与英语派生词》） (李平武) (rary.sk, 1lib.sk, .sk)"
+  },
+  {
+    "id": 25,
+    "title": "理性力学教程（锐化处理带书签） (赵亚溥) (rary.sk, 1lib.sk, .sk)"
+  },
+  {
+    "id": 26,
+    "title": "英语口译笔记法实战指导 (吴钟明主编, Zhongming Wu, 吴钟明, WU ZHONG MING etc.) (rary.sk, 1lib.sk, .sk)"
+  },
+  {
+    "id": 27,
+    "title": "英语口译笔记法实战指导 (吴钟明主编, 吴钟明主编, 吴钟明) (rary.sk, 1lib.sk, .sk)"
+  },
+  {
+    "id": 28,
+    "title": "英语口译笔记法实战指导-第三版 (ssreader, 吴钟明著) (rary.sk, 1lib.sk, .sk)"
+  },
+  {
+    "id": 29,
+    "title": "英语词汇的奥秘蒋争书系英语熟词扩展记忆法 (英语词汇的奥秘•蒋争书系) (蒋争) (rary.sk, 1lib.sk, .sk)"
+  },
+  {
+    "id": 30,
+    "title": "英语词汇的奥秘蒋争书系英语词汇分类记忆法 (英语词汇的奥秘•蒋争书系) (蒋争) (rary.sk, 1lib.sk, .sk)"
+  },
+  {
+    "id": 31,
+    "title": "英语词汇的奥秘蒋争书系英语词汇的奥秘(升级版) (英语词汇的奥秘•蒋争书系) (蒋争) (rary.sk, 1lib.sk, .sk)"
+  },
+  {
+    "id": 32,
+    "title": "英语语法新思维：（定语从句+句子成分+名词从句）超精解+语法难点妙解（套装共4册） (张满胜) (rary.sk, 1lib.sk, .sk)"
+  }
+]
